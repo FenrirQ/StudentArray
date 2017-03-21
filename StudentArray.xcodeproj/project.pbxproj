@@ -14,6 +14,7 @@
 		65E2D5521E809A7900592219 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2D5511E809A7900592219 /* TableViewController.swift */; };
 		65E2D5541E80A7B600592219 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2D5531E80A7B600592219 /* DataSource.swift */; };
 		65E2D5561E80A7BE00592219 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2D5551E80A7BE00592219 /* Delegate.swift */; };
+		65E2D5581E80B74800592219 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2D5571E80B74800592219 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		65E2D5511E809A7900592219 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		65E2D5531E80A7B600592219 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		65E2D5551E80A7BE00592219 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		65E2D5571E80B74800592219 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				65E2D53F1E809A5C00592219 /* AppDelegate.swift */,
 				65E2D5511E809A7900592219 /* TableViewController.swift */,
+				65E2D5571E80B74800592219 /* DataService.swift */,
 				65E2D5531E80A7B600592219 /* DataSource.swift */,
 				65E2D5551E80A7BE00592219 /* Delegate.swift */,
 				65E2D5431E809A5C00592219 /* Main.storyboard */,
@@ -146,6 +149,7 @@
 				65E2D5541E80A7B600592219 /* DataSource.swift in Sources */,
 				65E2D5401E809A5C00592219 /* AppDelegate.swift in Sources */,
 				65E2D5521E809A7900592219 /* TableViewController.swift in Sources */,
+				65E2D5581E80B74800592219 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +309,7 @@
 				65E2D5501E809A5C00592219 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,7 +10,6 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-    var students = ["Thắng", "Hiển", "Cường", "Đức"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +37,8 @@ class TableViewController: UITableViewController {
     
     
     @IBAction func addRow(_ sender: UIBarButtonItem) {
-        students.append("Quang")
-        tableView.insertRows(at: [IndexPath(row: students.count-1, section: 0)], with: .automatic)
+        DataService.service.students.append("Quang")
+        tableView.insertRows(at: [IndexPath(row: DataService.service.students.count-1, section: 0)], with: .automatic)
     }
 
 }
