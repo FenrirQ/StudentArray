@@ -13,13 +13,13 @@ extension TableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return DataService.service.students.count
+        return DataServices.shared.students.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = DataService.service.students[indexPath.row]
+        cell.textLabel?.text = DataServices.shared.students[indexPath.row]
         
         return cell
     }
@@ -38,7 +38,7 @@ extension TableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            DataService.service.students.remove(at: indexPath.row)
+            DataServices.shared.students.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -50,7 +50,7 @@ extension TableViewController {
     
      // Override to support rearranging the table view.
      override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-         DataService.service.reorder(from: fromIndexPath.row, to: to.row)
+         DataServices.shared.reorder(from: fromIndexPath.row, to: to.row)
      }
     
     

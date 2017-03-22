@@ -37,8 +37,8 @@ class TableViewController: UITableViewController {
     
     
     @IBAction func addRow(_ sender: UIBarButtonItem) {
-        DataService.service.students.append("Quang")
-        tableView.insertRows(at: [IndexPath(row: DataService.service.students.count-1, section: 0)], with: .automatic)
+        DataServices.shared.students.append("Quang")
+        tableView.insertRows(at: [IndexPath(row: DataServices.shared.students.count-1, section: 0)], with: .automatic)
     }
 
 }

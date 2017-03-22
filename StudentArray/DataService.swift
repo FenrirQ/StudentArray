@@ -8,25 +8,11 @@
 
 import Foundation
 
-class DataService {
-    static var service: DataService = DataService()
-    private var _students = [String]()
+class DataServices {
+    static var shared: DataServices = DataServices()
     
-    var students: [String] {
-        set {
-            _students = newValue
-        }
-        get {
-            if _students.count == 0 {
-                getData()
-            }
-            return _students
-        }
-    }
+    var students: [String] = ["Thắng", "Hiển", "Cường", "Đức"]
     
-    func getData() {
-        _students = ["Thắng", "Hiển", "Cường", "Đức"]
-    }
     
     func swap<T>(first: inout T, second: inout T) {
         let temp = first
@@ -36,7 +22,7 @@ class DataService {
     
     func reorder(from: Int, to: Int) {
         guard from != to else {return}
-        swap(first: &_students[from], second: &_students[to])
+        swap(first: &students[from], second: &students[to])
     }
     
 }
