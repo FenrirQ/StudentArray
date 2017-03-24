@@ -11,6 +11,7 @@ import UIKit
 class TableViewController: UITableViewController {
 
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,8 +38,11 @@ class TableViewController: UITableViewController {
     
     
     @IBAction func addRow(_ sender: UIBarButtonItem) {
-        DataServices.shared.students.append("Quang")
+        let Quang = Person(name: "Quang", age: 21, phoneNumber: "09xxx", imageData: UIImageJPEGRepresentation(UIImage(named: "Default")!, 1.0)!)
+        DataServices.shared.students.append(Quang)
         tableView.insertRows(at: [IndexPath(row: DataServices.shared.students.count-1, section: 0)], with: .automatic)
     }
 
+    
+    
 }

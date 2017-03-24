@@ -18,8 +18,10 @@ extension TableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = DataServices.shared.students[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! StudentTableViewCell
+        cell.nameLabel.text = DataServices.shared.students[indexPath.row].name
+        cell.phoneNumberLabel.text = DataServices.shared.students[indexPath.row].phoneNumber
+        cell.imgView?.image = UIImage(data: DataServices.shared.students[indexPath.row].imageData!)
         
         return cell
     }
