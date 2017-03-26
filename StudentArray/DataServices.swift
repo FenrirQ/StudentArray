@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class DataServices {
     static var shared: DataServices = DataServices()
@@ -33,8 +34,20 @@ class DataServices {
     func reorder(from: Int, to: Int) {
         guard from != to else {return}
         swap(first: &students[from], second: &students[to])
+        saveStudents()
     }
     
+    func saveStudents() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(students, toFile: Person.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Students successful saved", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save students", log: OSLog.default, type: .debug)
+        }
+    }
     
+    func loadStudents() -> [Person]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Person.ArchiveURL.path) as? [Person]
+    }
     
 }

@@ -14,7 +14,7 @@
 		65E2D5521E809A7900592219 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2D5511E809A7900592219 /* TableViewController.swift */; };
 		65E2D5541E80A7B600592219 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2D5531E80A7B600592219 /* DataSource.swift */; };
 		65E2D5561E80A7BE00592219 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2D5551E80A7BE00592219 /* Delegate.swift */; };
-		65E2D5581E80B74800592219 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2D5571E80B74800592219 /* DataService.swift */; };
+		65E2D5581E80B74800592219 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2D5571E80B74800592219 /* DataServices.swift */; };
 		65E2D55A1E82D02200592219 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E2D5591E82D02200592219 /* Person.swift */; };
 		65F336EE1E8498A9001DADE7 /* StudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F336ED1E8498A9001DADE7 /* StudentTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +29,7 @@
 		65E2D5511E809A7900592219 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		65E2D5531E80A7B600592219 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		65E2D5551E80A7BE00592219 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
-		65E2D5571E80B74800592219 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		65E2D5571E80B74800592219 /* DataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 		65E2D5591E82D02200592219 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		65F336ED1E8498A9001DADE7 /* StudentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,7 +67,7 @@
 				65E2D53F1E809A5C00592219 /* AppDelegate.swift */,
 				65E2D5511E809A7900592219 /* TableViewController.swift */,
 				65F336ED1E8498A9001DADE7 /* StudentTableViewCell.swift */,
-				65E2D5571E80B74800592219 /* DataService.swift */,
+				65E2D5571E80B74800592219 /* DataServices.swift */,
 				65E2D5531E80A7B600592219 /* DataSource.swift */,
 				65E2D5551E80A7BE00592219 /* Delegate.swift */,
 				65E2D5591E82D02200592219 /* Person.swift */,
@@ -157,7 +157,7 @@
 				65E2D5401E809A5C00592219 /* AppDelegate.swift in Sources */,
 				65F336EE1E8498A9001DADE7 /* StudentTableViewCell.swift in Sources */,
 				65E2D5521E809A7900592219 /* TableViewController.swift in Sources */,
-				65E2D5581E80B74800592219 /* DataService.swift in Sources */,
+				65E2D5581E80B74800592219 /* DataServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
