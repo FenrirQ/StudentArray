@@ -9,15 +9,27 @@
 import UIKit
 
 
-extension TableViewController {
+class DataSource: NSObject, UITableViewDataSource {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        var numberOfSections: Int = 0
+        if(DataServices.shared.students.count > 0) {
+            tableView.separatorStyle = .singleLine
+            numberOfSections = 1
+            
+        } else{
+            NotificationCenter.default.post(name: NotificationKey.didShowAlert, object: nil)
+        }
+        return numberOfSections
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
         return DataServices.shared.students.count
     }
     
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! StudentTableViewCell
         cell.nameLabel.text = DataServices.shared.students[indexPath.row].name
         cell.phoneNumberLabel.text = DataServices.shared.students[indexPath.row].phoneNumber
@@ -29,7 +41,7 @@ extension TableViewController {
     
     
     // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
@@ -37,18 +49,15 @@ extension TableViewController {
     
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             DataServices.shared.students.remove(at: indexPath.row)
             DataServices.shared.saveStudents()
-            if DataServices.shared.students.isEmpty {
-                let alert = UIAlertController(title: "Thông báo", message: "Đã xóa hết dữ liệu", preferredStyle: .alert)
-                let alertOKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(alertOKAction)
-                self.present(alert, animated: true, completion: nil)
-            }
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+            
+            
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
             
@@ -58,18 +67,21 @@ extension TableViewController {
     
     
      // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
          DataServices.shared.reorder(from: fromIndexPath.row, to: to.row)
      }
     
     
     
      // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
      // Return false if you do not want the item to be re-orderable.
-     return true
+        return true
      }
      
 
     
+}
+struct NotificationKey {
+    static let didShowAlert = NSNotification.Name(rawValue: "didShowAlert")
 }

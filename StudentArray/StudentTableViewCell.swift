@@ -26,5 +26,6 @@ class StudentTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    
 }

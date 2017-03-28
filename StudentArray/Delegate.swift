@@ -6,8 +6,8 @@
 //  Copyright © 2017 FenrirQ. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-extension TableViewController {
+class Delegate: NSObject, UITableViewDelegate {
     
 }
