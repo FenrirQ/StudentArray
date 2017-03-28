@@ -16,9 +16,7 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        if let savedStudents = DataServices.shared.loadStudents() {
-            DataServices.shared.students = savedStudents
-        }
+            
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +40,7 @@ class TableViewController: UITableViewController {
     
     @IBAction func addRow(_ sender: UIBarButtonItem) {
         let Quang = Person(name: "Quang", age: 21, phoneNumber: "09xxx", imageData: UIImageJPEGRepresentation(UIImage(named: "Default")!, 1.0)!)
-        DataServices.shared.students.append(Quang)
+        DataServices.shared.appendStudent(person: Quang)
         DataServices.shared.saveStudents()
         tableView.insertRows(at: [IndexPath(row: DataServices.shared.students.count-1, section: 0)], with: .automatic)
     }

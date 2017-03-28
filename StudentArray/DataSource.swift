@@ -42,6 +42,12 @@ extension TableViewController {
             // Delete the row from the data source
             DataServices.shared.students.remove(at: indexPath.row)
             DataServices.shared.saveStudents()
+            if DataServices.shared.students.isEmpty {
+                let alert = UIAlertController(title: "Thông báo", message: "Đã xóa hết dữ liệu", preferredStyle: .alert)
+                let alertOKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(alertOKAction)
+                self.present(alert, animated: true, completion: nil)
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
