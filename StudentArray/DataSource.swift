@@ -11,16 +11,21 @@ import UIKit
 
 class DataSource: NSObject, UITableViewDataSource {
     
+    unowned var tableViewController: TableViewController
+    
+    init(tableViewController: TableViewController ) {
+        self.tableViewController = tableViewController
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        var numberOfSections: Int = 0
-        if(DataServices.shared.students.count > 0) {
-            tableView.separatorStyle = .singleLine
-            numberOfSections = 1
-            
-        } else{
-            NotificationCenter.default.post(name: NotificationKey.didShowAlert, object: nil)
+        var numberSection: Int = 0
+        if DataServices.shared.students.count > 0 {
+            numberSection = 1
+        } else {
+            tableViewController.presentAlert()
         }
-        return numberOfSections
+        
+        return numberSection
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -78,10 +83,7 @@ class DataSource: NSObject, UITableViewDataSource {
      // Return false if you do not want the item to be re-orderable.
         return true
      }
-     
-
     
-}
-struct NotificationKey {
-    static let didShowAlert = NSNotification.Name(rawValue: "didShowAlert")
+    
+    
 }

@@ -18,7 +18,7 @@ class DataServices {
             if _students == nil {
                 _students = loadStudents()
             }
-            return _students!
+            return _students ?? []
         }
         set {
             _students = newValue
@@ -39,7 +39,11 @@ class DataServices {
     }
     
     func appendStudent(person: Person) {
-        students.append(person)
+        if _students == nil {
+            _students = []
+        }
+        _students!.append(person)
+        saveStudents()
     }
     
     func saveStudents() {
@@ -57,17 +61,17 @@ class DataServices {
             _students = loadSampleStudents()
             saveStudents()
         }
-        return _students!
+        return _students ?? []
     }
     
     func loadSampleStudents() -> [Person] {
         let data = UIImageJPEGRepresentation(img!, 1.0)
         
         let Thang: Person = Person(name: "Thắng", age: 32, phoneNumber: "09xxx", imageData: data!)
-        let Cuong: Person = Person(name: "Cường", age: 28, phoneNumber: "09xxx", imageData: data!)
-        let Hoang: Person = Person(name: "Hoàng", age: 25, phoneNumber: "09xxx", imageData: data!)
-        let Duc: Person = Person(name: "Đức", age: 23, phoneNumber: "09xxx", imageData: data!)
-        return [Thang, Cuong, Hoang, Duc]
+//        let Cuong: Person = Person(name: "Cường", age: 28, phoneNumber: "09xxx", imageData: data!)
+//        let Hoang: Person = Person(name: "Hoàng", age: 25, phoneNumber: "09xxx", imageData: data!)
+//        let Duc: Person = Person(name: "Đức", age: 23, phoneNumber: "09xxx", imageData: data!)
+        return [Thang]//, Cuong, Hoang, Duc]
     }
     
 }

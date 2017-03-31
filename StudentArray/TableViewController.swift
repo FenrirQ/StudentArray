@@ -10,17 +10,15 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-    var tableViewDataSource = DataSource()
+    var tableViewDataSource : DataSource!
     var tableViewDelegate = Delegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+        tableViewDataSource = DataSource(tableViewController: self)
         tableView.delegate = tableViewDelegate
         tableView.dataSource = tableViewDataSource
-        registerNotification()
         
     }
  
@@ -46,8 +44,11 @@ class TableViewController: UITableViewController {
     @IBAction func addRow(_ sender: UIBarButtonItem) {
         let Quang = Person(name: "Quang", age: 21, phoneNumber: "09xxx", imageData: UIImageJPEGRepresentation(UIImage(named: "Default")!, 1.0)!)
         DataServices.shared.appendStudent(person: Quang)
-        DataServices.shared.saveStudents()
-        tableView.insertRows(at: [IndexPath(row: DataServices.shared.students.count-1, section: 0)], with: .automatic)
+        if DataServices.shared.students.count == 1 {
+            tableView.reloadData()
+        } else {
+            tableView.insertRows(at: [IndexPath(row: DataServices.shared.students.count-1, section: 0)], with: .automatic)
+        }
         if DataServices.shared.students.isEmpty {
             presentAlert()
         }
@@ -58,18 +59,5 @@ class TableViewController: UITableViewController {
         let alertOKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(alertOKAction)
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    func registerNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(_:)), name: NotificationKey.didShowAlert, object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    func handleNotification(_ notification: Notification) {
-        DispatchQueue.main.async {
-            self.presentAlert()
-        }
     }
 }
